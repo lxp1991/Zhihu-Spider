@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        // 定义即将访问的链接
+    /*    // 定义即将访问的链接
         String url = "http://www.zhihu.com/explore/recommendations";
         // 访问链接并获取页面内容
         String content = Spider.SendGet(url);
@@ -17,5 +17,12 @@ public class Main {
         ArrayList<Zhihu> myZhihu = Spider.GetRecommendations(content);
         // 打印结果
         System.out.println(myZhihu);
+    */
+        //get the content of the webpage
+        String content = Spider.SendGet("http://www.zhihu.com");
+
+     //   temp = Spider.GetHighestAnswers(content, 3);
+
+        System.out.println(content);
     }
 }

@@ -34,10 +34,12 @@ public class FileReaderWriter {
                 bufferedReader = new BufferedReader(fileReader);
                 while ((temp = bufferedReader.readLine()) != null) {
                     if (keyWord == null) {
-                        stringBuffer.append(temp + "\n");
+                        //stringBuffer.append(temp + "\n");
+                        stringBuffer.append(temp);
                     } else {
                         if (temp.contains(keyWord)) {
-                            stringBuffer.append(temp + "\n");
+                            //stringBuffer.append(temp + "\n");
+                            stringBuffer.append(temp);
                         }
                     }
                 }

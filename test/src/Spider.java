@@ -11,7 +11,9 @@ import java.util.regex.Pattern;
 
 public class Spider {
     static String SendGet(String url) {
-        // 定义一个字符串用来存储网页内容
+        // Translate the username into real url
+    //    url = "http://www.zhihu.com/people/" + url + "/answers?order_by=vote_num";
+        System.out.println(url);
         String result = "";
         // 定义一个缓冲字符输入流
         BufferedReader in = null;
@@ -67,6 +69,31 @@ public class Spider {
             isFind = matcher.find();
         }
         return results;
+    }
+
+
+    static ArrayList<String> Get
+
+    /**
+     * get the top answers from one person's webpage
+     *
+     * @param content
+     *            content of webpage
+     * @param count
+     *            the number of highest answers
+     */
+    static ArrayList<String> GetHighestAnswers(String content, int count) {
+        ArrayList<String> result = new ArrayList<String>();
+        //match the vote count
+        Pattern pattern = Pattern.compile("data-votecount=\"(.+?)\"");
+        Matcher matcher = pattern.matcher(content);
+        System.out.println(matcher.group(1));
+        Boolean isFind = matcher.find();
+        while (isFind) {
+            result.add(matcher.group(1));
+            isFind = matcher.find();
+        }
+        return result;
     }
 
 }
